@@ -1,4 +1,5 @@
 {
+  "homepage": "http://pranil5134.github.io/react-add-tocart",
   "name": "add-to-cart-demo",
   "version": "0.1.0",
   "private": true,
@@ -9,6 +10,7 @@
     "axios": "^0.21.1",
     "bootstrap": "^5.0.2",
     "css-what": "^5.0.1",
+    "gh-pages": "^3.2.3",
     "normalize-url": "^7.0.0",
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.1",
@@ -19,6 +21,8 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
+    "predeploy":"npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
