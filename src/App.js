@@ -1,24 +1,48 @@
-import logo from './logo.svg';
 import './App.css';
+import Menu from './Menu';
+import Banner from './Banner';
+import Cards from './Cards';
+import React, { Component, useState } from 'react';
+import { buildQueries } from '@testing-library/react';
+
 
 function App() {
+  const [count,setcount] = useState(0)
+  const [disable,setDisable] = useState(false)
+  const [lable,setLabel] = useState("NUll")
+  const [id,setId] =useState(-1)
+  async function addtocart  (label,id)  {
+   if(label == "Add to cart")
+   {
+      await setcount(count+1)
+      setDisable(true)
+      setId(id)
+      setLabel(label)
+      console.log(id)
+      console.log("hello", label)
+   }
+   else if(label == "Remove from cart")
+   {
+      await setcount(count-1)
+      setDisable(true)
+      setId(id)
+      setLabel(label)
+      console.log(id)
+      console.log("hello", label)
+   }
+    
+    }
+ 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <Menu dataParentToChild = {count}/>
+    <Banner/>
+    <Cards addtocart={addtocart.bind(this)} disableToChild = {id} buttonlabel = {lable}/>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+          save to reload.
+        </p>   
     </div>
+   
   );
 }
 
